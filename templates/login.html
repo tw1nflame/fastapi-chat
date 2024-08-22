@@ -1,0 +1,26 @@
+{%extends "base.html"%}
+
+
+{%block content%}
+{% include "nav-unlogged.html" %}
+<div>
+    <h2>Войти</h2>
+    <link rel="stylesheet" href="/static/css/auth.css">
+    <form id="login-form">
+        <div class="form-group">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="login-password">Пароль:</label>
+            <input type="password" id="login-password" name="password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Войти</button>
+        </div>
+        <div class="message" id="login-message"></div>
+    </form>
+</div>
+<a href="/auth/register">Нет акканта?</a>
+<script src="/static/js/login.js?v=1.0"></script>
+{%endblock%}

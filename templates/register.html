@@ -1,0 +1,38 @@
+{%extends "base.html"%}
+
+
+
+{%block content%}
+
+{% include "nav-unlogged.html" %}
+<div>
+<link rel="stylesheet" href="/static/css/auth.css">
+<h2>Регистрация</h2>
+<form id="register-form">
+    <div class="form-group">
+        <label for="register-email">Email:</label>
+        <input type="text" id="register-email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="register-password">Пароль:</label>
+        <input type="password" id="register-password" name="password" required>
+    </div>
+    <div class="form-group">
+        <label for="register-first-name">Имя:</label>
+        <input type="text" id="register-first-name" name="first-name" required>
+    </div>
+    <div class="form-group">
+        <label for="register-last-name">Фамилия:</label>
+        <input type="text" id="register-last-name" name="last-name" required>
+    </div>
+    
+    <div class="form-group">
+        <button type="submit">Зарегистрироваться</button>
+    </div>
+    <div class="message" id="register-message"></div>
+</form>
+
+<a href="/auth/login">Уже есть аккаунт?</a>
+</div>
+<script src="/static/js/register.js?v=1.0"></script>
+{%endblock%}
