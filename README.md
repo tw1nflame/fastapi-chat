@@ -1,6 +1,6 @@
-#FastAPI
+# FastAPI
 
-##Already made:
+## Already made:
 
 1. Postgres Database with all needed structure
 2. Authorization - using FastAPI-users lib, JWT token, cookie files. Endpoints are /auth/login or /auth/register
