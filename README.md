@@ -12,3 +12,7 @@
 1. Profiles
 2. Private messaging
 3. Authorization via google+, telegram or facebook
+
+## Environmental variables
+
+To get this thing to work you need to setup some variables (look at src/config.py)
