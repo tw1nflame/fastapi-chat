@@ -6,13 +6,11 @@ from sqlalchemy import TIMESTAMP, Boolean, Column, ForeignKey, Integer, MetaData
 from database import Base
 from auth.models import User
 
-metadata = MetaData()
-
 
 class Profile_info(Base):
     __tablename__ = "profile_info"
     id: Mapped[int] = mapped_column(primary_key=True)
-    user_id: Mapped[int] = mapped_column(ForeignKey=User.id)
+    user_id: Mapped[int] = mapped_column(ForeignKey(User.id))
     bio: Mapped[str] = mapped_column(String(1000))
     status: Mapped[str] = mapped_column(String(1000))
     birth_date: Mapped[datetime] = mapped_column(TIMESTAMP)
