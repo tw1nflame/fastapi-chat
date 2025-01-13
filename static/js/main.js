@@ -4,7 +4,7 @@ document.getElementById('logout-link').addEventListener("click", async (event) =
         const response = await fetch('/auth/logout', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded', // Установка правильного Content-Type
+                'Content-Type': 'application/x-www-form-urlencoded', 
             },
         });
         if (response.status == 204) {

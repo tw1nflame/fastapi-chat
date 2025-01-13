@@ -7,6 +7,7 @@ from auth_forms.router import router as login_router
 from chat.router import router as chat_router
 from user_profile.router import router as profile_router
 
+
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="../static"), name="static")

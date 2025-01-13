@@ -16,3 +16,6 @@ class User(SQLAlchemyBaseUserTable[int], Base):
     is_active = Column(Boolean, default=True, nullable=False)
     is_superuser = Column(Boolean, default=False, nullable=False)
     is_verified = Column(Boolean, default=False, nullable=False)
+    bio = Column(String, nullable=True)
+    status = Column(String, nullable=True)
+    birth_date = Column(TIMESTAMP, nullable=True)
