@@ -21,27 +21,37 @@ ws.onmessage = function(event) {
 
     if (data.type == "message") {
 
-        // Создаем элементы для автора и текста сообщения
         let author = document.createElement('span');
         author.className = 'author';
         let text = document.createElement('span');
         text.className = 'text';
 
-        // Устанавливаем текст для каждого элемента
-        author.innerText = data.first_name + ' ' + data.last_name + ': ';
+        author.innerText = data.first_name + ' ' + data.last_name + ': '; 
+
+        let link = document.createElement('a');
+        link.href = `/profile/${data.id}`;
+        link.appendChild(author);
+
         text.innerText = data.message;
 
-        // Добавляем элементы в сообщение
-        message.appendChild(author);
+        message.appendChild(link);
         message.appendChild(text);
 
-        // Добавляем сообщение в чат
     }
-    else if (data.type == "info") {
+    else if (data.type == "new_user") {
         let info = document.createElement('span')
         info.className = "server_info"
-        info.innerText = data.info
+
+        let link = document.createElement('a')
+        info.appendChild(link)
+
+        link.innerText = data.first_name + ' ' + data.last_name;
+        link.href = `/profile/${data.id}`
+        let textBefore = document.createTextNode("Пользователь ");
+        let textAfter = document.createTextNode(" подключился к чату");
+        message.appendChild(textBefore)
         message.appendChild(info)
+        message.appendChild(textAfter)
     }
     
     chat.appendChild(message);
