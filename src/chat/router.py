@@ -41,8 +41,10 @@ async def websocket_endpoint(websocket: WebSocket, token: str = Query(...), user
         return
 
     data = {
-        "type": 'info',
-        'info': f"Пользователь {user.first_name} {user.last_name} присоединился к чату"
+        "type": 'new_user',
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'id': user.id
     }
 
     await manager.broadcast(json.dumps(data))
@@ -54,7 +56,8 @@ async def websocket_endpoint(websocket: WebSocket, token: str = Query(...), user
                 "message": message,
                 "first_name": user.first_name,
                 "last_name": user.last_name,
-                "type": "message"
+                "type": "message",
+                "id": user.id
             }
             await manager.broadcast(json.dumps(data))
     except WebSocketDisconnect:

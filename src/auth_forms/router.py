@@ -1,13 +1,11 @@
 from fastapi import APIRouter, Request
 from fastapi.templating import Jinja2Templates
-
+from template import templates
 
 router = APIRouter(
     prefix="/auth",
     tags=["login"]
 )
-
-templates = Jinja2Templates(directory="../templates")
 
 
 @router.get("/login")
